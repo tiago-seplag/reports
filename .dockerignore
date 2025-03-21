@@ -1,0 +1,15 @@
+node_modules
+build
+
+.vscode
+.env
+.idea
+.dockerignore
+.git
+.gitignore
+
+Dockerfile*
+docker-compose*
+*.md
+
+access.log

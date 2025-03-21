@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <style>
+      .error {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+    </style>
+  </head>
+  <body class="error">
+    <title>ERROR-{{ code }}</title>
+    <h1>ERRO {{ code }}</h1>
+    {% if code === 403 %}
+      <h2>E_FORBIDDEN_ACCESS: Sem permissão!</h2>
+    {% endif %}
+    {% if code === 401 %}
+      <h2>E_UNAUTHORIZED_ACCESS: Acesso Não Autorizado!</h2>
+    {% endif %}
+    {% if code >= 500 %}
+      <h2>E_EXCEPTION: Algo inesperado ocorreu!</h2>
+    {% endif %}
+  </body>
+</html>
