@@ -115,14 +115,33 @@
                             <input disabled type="radio" value="bom" {% if item.score == 3 %} checked {% endif %}/>
                         </td>
                         <td>
-                            <input disabled type="radio" value="regular" {% if item.score == 2 %} checked {% endif %}/>
+                            <input disabled type="radio" value="regular" {% if item.score == 1 %} checked {% endif %}/>
                         </td>
                         <td>
-                            <input disabled type="radio" value="ruim" {% if item.score == 1 %} checked {% endif %}/>
+                            <input disabled type="radio" value="ruim" {% if item.score == -2 %} checked {% endif %}/>
                         </td>
                     </tr>
                 {% endfor %}
             </tbody>
+            <tfoot>
+                <tr>
+                    <td style="text-align: start; font-weight: bold;">NOTA FINAL</td>
+                    <td colspan="3" style="text-align: end; font-weight: bold;">
+                        {% if score >= 2.5 %}
+                            BOM
+                        {% elif score > 1.49 %}
+                            REGULAR
+                        {% else %}
+                            RUIM
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="4" style="text-align: end; font-weight: 300; font-size: 12px">
+                        {{ score.toString().slice(0, 4) }}
+                    </td>
+                </tr>
+            </tfoot>
         </table>
     </section>
     <section class="card">
@@ -150,10 +169,10 @@
             </div>
         </fieldset>
     </section>
-    <section style="height: 100%">
+    <section style="display: flex; flex-direction: column; height: 100%;">
         <h1>IMAGENS</h1>
         {% for item in checklistItems %}
-            <div class="card card-images">
+            <div class="card card-images" style="flex-grow: 1">
                 <fieldset>
                     <div class="line">
                         <p>
