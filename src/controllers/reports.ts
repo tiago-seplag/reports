@@ -7,17 +7,10 @@ export async function generate(
   response: Response,
   next: NextFunction
 ) {
-  const { authorization } = request.headers;
-
+  new AppError("unknown error");
   try {
-    const { data } = await axios.get(
-      process.env.API_URL + "/api/checklists/" + request.query.id,
-      {
-        headers: {
-          Cookie: authorization,
-        },
-      }
-    );
+    const data = request.body;
+
     return response.status(201).render("checklist", data);
   } catch (err: any) {
     if (err.response?.data) {
