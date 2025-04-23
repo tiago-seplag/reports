@@ -103,6 +103,22 @@
                             </svg>
                             RUIM</th>
                     </div>
+                    <th>
+                        <div>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="#71717a"
+                                stroke="#71717a"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="lucide lucide-circle-minus-icon lucide-circle-minus"><circle cx="12" cy="12" r="10"/><path stroke="white" d="M8 12h8"/>
+                            </svg>
+                            N/A</th>
+                    </div>
                 </tr>
             </thead>
             <tbody>
@@ -120,13 +136,16 @@
                         <td>
                             <input disabled type="radio" value="ruim" {% if item.score == -2 %} checked {% endif %}/>
                         </td>
+                        <td>
+                            <input disabled type="radio" value="ruim" {% if item.score == 0 %} checked {% endif %}/>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
             <tfoot>
                 <tr>
                     <td style="text-align: start; font-weight: bold;">NOTA FINAL</td>
-                    <td colspan="3" style="text-align: end; font-weight: bold;">
+                    <td colspan="4" style="text-align: end; font-weight: bold;">
                         {% if score >= 2.5 %}
                             BOM
                         {% elif score > 1.49 %}
@@ -137,7 +156,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="4" style="text-align: end; font-weight: 300; font-size: 12px">
+                    <td colspan="5" style="text-align: end; font-weight: 300; font-size: 12px">
                         {{ score.toString().slice(0, 4) }}
                     </td>
                 </tr>
