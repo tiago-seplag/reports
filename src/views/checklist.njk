@@ -200,7 +200,7 @@
                 <div class="images-grid">
                     {% for image in item.images %}
                         <figure>
-                            <img src={{ BUCKET_URL + image.image }} alt="Minha Figura"/>
+                            <img src="{{ BUCKET_URL + image.image }}?compress=true" alt="Minha Figura"/>
                             <figcaption>{{ image.observation }}</figcaption>
                         </figure>
                     {% endfor %}
