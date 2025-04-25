@@ -146,12 +146,12 @@
                 <tr>
                     <td style="text-align: start; font-weight: bold;">NOTA FINAL</td>
                     <td colspan="4" style="text-align: end; font-weight: bold;">
-                        {% if score >= 2.5 %}
+                        {% if score > 2.5 %}
                             BOM
-                        {% elif score > 1.49 %}
-                            REGULAR
-                        {% else %}
+                        {% elif score < 1 %}
                             RUIM
+                        {% else %}
+                            REGULAR
                         {% endif %}
                     </td>
                 </tr>
