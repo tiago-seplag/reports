@@ -1,5 +1,6 @@
 import nj from "nunjucks";
 import path from "path";
+import { format } from "date-fns";
 
 import { Express } from "express";
 
@@ -18,8 +19,22 @@ export const nunjucks = (app: Express) => {
       return "--";
     }
 
-    const formattedDate = new Date(input).toLocaleDateString();
+    const formattedDate = format(input, "dd/MM/yyyy");
 
     return formattedDate;
+  });
+
+  env.addFilter("formatPhone", function (input) {
+    if (!input) {
+      return "--";
+    }
+    const str = input.replace(/\D/g, ""); // remove caracteres não numéricos
+
+    return str.length <= 10
+      ? str.replace(/(\d{2})(\d)/, "($1) $2").replace(/(\d{4})(\d)/, "$1-$2")
+      : str
+          .replace(/(\d{2})(\d)/, "($1) $2")
+          .replace(/(\d{1})(\d{4})(\d)/, "$1 $2-$3")
+          .slice(0, 16);
   });
 };

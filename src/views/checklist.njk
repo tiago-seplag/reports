@@ -22,10 +22,12 @@
             <div class="line">
                 <p>
                     <span>CARGO:</span>
-                    {{ property.person.role }}</p>
+                    {{ property.person.role }}
+                </p>
                 <p>
                     <span>TEL.:</span>
-                    {{ property.person.phone }}</p>
+                    {{ property.person.phone | formatPhone }}
+                </p>
             </div>
         </fieldset>
     </section>
@@ -148,10 +150,10 @@
         <fieldset>
             <div class="line" style="align-items: center">
                 <p>
-                    <span>INDICADOR GERAL DE MANUTENÇÃO DE IMÓVEIS:</span>
+                    <span style="font-weight: bold; font-size: 22px;">INDICADOR DE MANUTENÇÃO DO IMÓVEL:</span>
                 </p>
                 <div style="display: flex; align-items: center; padding: 4px; gap: 4px;">
-                    <p style="margin-left: auto; flex: initial;">
+                    <p style="margin-left: auto; flex: initial; font-size: 22px;">
                         {% if score > 2.5 %}
                             BOM
                         {% elif score < 1 %}
