@@ -262,8 +262,10 @@
                             <span>PONTUAÇÃO:</span>
                             {% if item.score == 3 %}
                                 BOM
-                            {% elif item.score == 2 %}
+                            {% elif item.score == 1 %}
                                 REGULAR
+                            {% elif item.score == 0 %}
+                                NÃO SE APLICA
                             {% else %}
                                 RUIM
                             {% endif %}
