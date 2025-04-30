@@ -146,7 +146,7 @@
             </tbody>
         </table>
     </section>
-    <section class="card">
+    <section class="card" {% if score > 2.5 %} style="border-color: #166534" {% elif score < 1.5 %} style="border-color: #991b1b" {% else %} style="border-color: #ca8a04" {% endif %}>
         <fieldset>
             <div class="line" style="align-items: center">
                 <p>
