@@ -146,13 +146,9 @@ class RemoveClearRowsHandler extends Paged.Handler {
   afterPageLayout(pageElement, page, breakToken, chunker) {
     this.chunker = chunker;
     this.splitTablesRefs = [];
-    let tableRow = pageElement.querySelector("table > tbody > tr:last-child");
-
-    if (tableRow) {
-      console.log(tableRow);
-      tableRow.remove();
-    }
+    page.element.childNodes[1].childNodes[9].childNodes[17].childNodes[1].childNodes[0].style =
+      "display: flex; flex-direction: column;";
   }
 }
 // Paged.registerHandlers(RepeatTableHeadersHandler);
-// Paged.registerHandlers(RemoveClearRowsHandler);
+Paged.registerHandlers(RemoveClearRowsHandler);

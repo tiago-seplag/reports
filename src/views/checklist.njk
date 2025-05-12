@@ -29,6 +29,12 @@
                     {{ property.person.phone | formatPhone }}
                 </p>
             </div>
+            <div class="line">
+                <p style="text-wrap: auto;">
+                    <span>ENDEREÇO:</span>
+                    {{ property.address }}
+                </p>
+            </div>
         </fieldset>
     </section>
     <section class="card">
@@ -253,7 +259,7 @@
     <section style="display: flex; flex-direction: column; height: 100%;">
         <h1>IMAGENS</h1>
         {% for item in checklistItems %}
-            <div class="card card-images" style="flex-grow: 1">
+            <div class="card card-images" style="height: 100%;">
                 <fieldset>
                     <div class="line">
                         <p>

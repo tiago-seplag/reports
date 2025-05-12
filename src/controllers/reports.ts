@@ -7,7 +7,6 @@ export async function generate(
   response: Response,
   next: NextFunction
 ) {
-  new AppError("unknown error");
   try {
     const data = request.body;
 
